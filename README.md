@@ -1,2 +1,2 @@
 # R-Markdown
-For DS documents and presentations
+For data science documents and presentations
