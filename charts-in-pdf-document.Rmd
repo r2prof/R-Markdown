@@ -1,0 +1,70 @@
+---
+title: "Including charts in RMarkdown"
+output: pdf_document
+tidy: styler
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE,
+	fig.height = 4
+)
+```
+
+This document is designed to demonstrate how the size of figures can be set in RMarkdown documents. There are two types of content included:
+
+- Base R plots
+- ggplot2 charts
+
+All charts are generated from the `starwars` dataset in the `dplyr` package. We'll load the `tidyverse` package now so that we can use the tidyverse in all three sections of this document.
+
+```{r load-tidyverse}
+library("tidyverse")
+```
+
+# Base R Charts
+
+Base R plots are created with functions from the `graphics` package, for instance `boxplot()`.
+
+```{r base-r-chart}
+starwars_hair_colours <- starwars %>%
+  count(eye_color) %>%
+  arrange(n)
+par(mar=c(bottom = 5.1, left = 6, top =4.1, right = 2.1))
+barplot(starwars_hair_colours$n,
+        names.arg = starwars_hair_colours$eye_color,
+        main="Eye Colours in Starwars", 
+        xlab="Characters with eye colour",
+        horiz = TRUE,
+        cex.names=0.8,
+        las=2,
+        beside = TRUE)
+```
+
+# ggplots Charts
+
+`ggplot2` provides an extremely powerful and flexible grammar of graphics for creating almost any type of chart.
+
+```{r ggplot2-chart}
+starwars %>%
+  filter(!is.na(species)) %>%
+  group_by(species = fct_lump(species, 3, other_level = "Other species")) %>%
+  mutate(n_species = n()) %>%
+  ungroup() %>%
+  mutate(species = fct_reorder(species, n_species),
+         species = species %>% fct_rev(),
+         species = fct_relevel(species, "Other species", after = Inf)) %>%
+  select(species, n_species, height) %>%
+  ggplot(aes(x = height)) +
+  geom_histogram() +
+  facet_grid(species ~.) +
+  theme_bw() +
+  labs(x = "Height (cm)",
+       y = "Count",
+       title = "Height distributions of the top 3 most common species in Starwars")
+```
+

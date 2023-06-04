@@ -1,0 +1,91 @@
+---
+title: "HTML Document with htmlwidgets"
+output: slidy_presentation
+css: [www/custom-captions.css, www/custom-styles.css]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE,
+	fig.pos = "h",
+	out.extra = ""
+)
+```
+
+# Introduction
+
+This example .Rmd document demonstrates how to embed `htmlwidgets` in HTML output formats. Note that we've specifically used the `slidy_presentation` format to demonstrate the requirement for `widgetframe` for *all* htmlwidgets.
+
+We need the following packages for this document:
+
+```{r}
+library("gapminder")
+library("tidyverse")
+library("highcharter")
+library("lubridate")
+library("glue")
+library("leaflet")
+library("leaflet.extras")
+library("sf")
+library("rnaturalearth")
+```
+
+# Population growth
+
+The visualisation below was created with `highcharter`. The `highcharter` library provides the ability to create a wide range of beautiful, professional looking charts. 
+
+```{r gapminder-pop-growth, fig.cap="Continental population growth (Source: Gapminder)"}
+gapminder_continents <- gapminder %>%
+  group_by(year, continent) %>%
+  summarise_if(is.numeric, funs(round(mean(as.numeric(.))))) %>%
+  ungroup() %>%
+  mutate(year = ymd(glue("{year}-12-31")))
+  
+highchart(type = "stock") %>%
+  hc_add_series(data = gapminder_continents,
+                type = "line",
+                hcaes(x = year,
+                      y = pop,
+                      group = continent)) %>%
+  hc_plotOptions(series = list(marker = list(enabled = TRUE))) %>%
+  hc_tooltip(xDateFormat = "%Y") %>%
+  hc_legend(enabled = TRUE, reverse = TRUE)
+```
+
+# GDP Choropleth
+
+The `leaflet` library allows us to create interactive maps, including shaded-area maps (choropleth) like the one below.
+
+```{r gdp-choropleth}
+countries_sf <- countries110 %>%
+  st_as_sf()
+
+pop_palette <- colorNumeric("viridis",
+                            domain = countries_sf$gdp_md_est)
+
+lf_choropleth <- countries_sf %>%
+  filter(! name == "Antarctica") %>%
+  leaflet() %>%
+  addPolygons(fillColor = ~pop_palette(gdp_md_est),
+              color = "black",
+              weight = 1,
+              opacity = 1,
+              fillOpacity = 0.7,
+              popup = ~glue("<h3>Country: {name}", "<br>",
+                           "Population: {pop_est}",
+                           "<br>",
+                           "GPD: {gdp_md_est}</h3>")) %>%
+  addLegend(pal = pop_palette,
+            values = ~gdp_md_est,
+            opacity = 0.7,
+            title = "GDP in $ (2009)") %>%
+  setMapWidgetStyle(style = list(background = "#aacbff"))
+lf_choropleth
+```
+
+
+

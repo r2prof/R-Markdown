@@ -1,0 +1,29 @@
+---
+title: "Untitled"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+RMarkdown `html_document` and all other HTML output formats provide the excellent Bootstrap framework for creating a beautiful user experience.
+
+<div class="row">
+  <div class="col-md-6">
+    <center>
+      <img src='images/knitr-sticker.png'></img>
+    </center>
+  </div>
+  <div class="col-md-6">
+    <center>
+    <img src='images/rmarkdown-sticker.png'></img>
+    </center>
+  </div>
+</div>
