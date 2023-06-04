@@ -31,3 +31,8 @@ doodle_url <- google_doodles_page %>%
 doodle_url
 ```
 
+```{r}
+glue("<img src={doodle_url}></img>") %>% 
+  knitr::raw_html()
+```
+

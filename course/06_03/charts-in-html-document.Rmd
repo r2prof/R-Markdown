@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 	echo = TRUE,
 	message = FALSE,
 	warning = FALSE,
-	out.width = '100%'
+	out.width = "100%"
 )
 ```
 
@@ -49,7 +49,7 @@ barplot(starwars_hair_colours$n,
 
 `ggplot2` provides an extremely powerful and flexible grammar of graphics for creating almost any type of chart.
 
-```{r ggplot2-chart}
+```{r ggplot2-chart, fig.asp=1}
 starwars %>%
   filter(!is.na(species)) %>%
   group_by(species = fct_lump(species, 3, other_level = "Other species")) %>%

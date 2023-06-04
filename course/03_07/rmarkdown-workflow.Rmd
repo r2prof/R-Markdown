@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## RMarkdown Workflow
+## RMarkdown Workflow {.tabset .tabset-dropdown}
 
 RMarkdown is a collection of technologies that allow useRs to create rich documents or slides that include text, code, images and the potential for interactive content.
 

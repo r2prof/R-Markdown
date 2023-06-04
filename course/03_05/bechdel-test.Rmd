@@ -1,10 +1,16 @@
 ---
 title: "The Bechdel Test and Movie Profitability"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
 ```
 
 ```{r load-all-libraries}
@@ -30,6 +36,10 @@ knitr::include_graphics("https://media.npr.org/programs/atc/features/2008/sep/be
 ## Profitability analysis by FiveThirtyEight.com
 
 FiveThirtyEight published an analysis of the correlation between passing the Bechdel test and a movie's gross worldiwde return: https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/
+```{r}
+bechdel %>%
+  head
+```
 
 Let's summarise their findings:
   

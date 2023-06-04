@@ -30,3 +30,6 @@ doodle_url <- google_doodles_page %>%
   str_replace("//", "")
 doodle_url
 ```
+
+\includegraphics{images/google-doodle.png}
+

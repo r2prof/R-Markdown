@@ -4,7 +4,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 RMarkdown is a collection of technologies that allow useRs to create rich documents or slides that include text, code, images and the potential for interactive content.
@@ -45,6 +45,6 @@ This document itself is an `.Rmd` file
 Generating output from an .Rmd file is achieved by clicking the "Knit" button in RStudio.
 
 ```{r knit-button}
-knitr::include_image("images/knit-button.png")
+knitr::include_graphics("images/knit-button.png")
 ```
 

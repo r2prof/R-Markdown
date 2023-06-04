@@ -13,6 +13,14 @@ RMarkdown is a collection of technologies that allow **useRs** to create rich do
 
 There are three things you need to know about to understand the RMarkdown document creation workflow.
 
+1. RStudio Projects
+
+    - This is the folder where your RMarkdown stuf lives
+
+1. .Rmd files
+
+1. Knitting files
+
 ### RStudio Projects
 
 RStudio projects help **useRs** to create transportable code that should work independent of operating system and remove the requirement to use `setwd()` in scripts.
