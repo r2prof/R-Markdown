@@ -1,0 +1,63 @@
+---
+title: "Untitled"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	out.extra = "",
+	fig.pos = "h"
+)
+```
+
+# Raw \LaTeX
+
+\LaTeX  can be inserted into RMarkdown documents without issue
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+\end{equation}
+
+# Escaping LaTeX symbols
+
+Most \LaTeX special characters do not need to be escaped in prose, the only ones that do are:
+
+- \# (written as \\#)
+- \\ (written as \\\\)
+
+So, the following can be used verbatim: $, %, &, ~, _, ^,
+{, }.
+
+However, they must be double escaped within code chunks. For instance, in the caption for Fig.\@ref(fig:mean-gdp-chart) the $ symbol is written as \\\\$
+
+```{r mean-gdp-chart, fig.cap="Mean GDP per employeed person (2010-2015, 2011 $)", fig.height=2}
+library("gapminder")
+library("tidyverse")
+library("WDI")
+library("scales")
+
+countries <- c("EE", "EG", "SG", "CN", "EC", "PG")
+
+gdp_per_employee <- WDI(
+  country = countries, indicator = "SL.GDP.PCAP.EM.KD",
+  start = 2010, end = 2015
+)
+
+gdp_per_employee %>%
+  group_by(country) %>%
+  summarise(mean_gdp = mean(SL.GDP.PCAP.EM.KD)) %>%
+  mutate(country = fct_reorder(country, mean_gdp)) %>%
+  ggplot(aes(x = country, y = mean_gdp)) +
+  geom_col() +
+  scale_y_continuous(labels = dollar) +
+  labs(x = "", y = "Mean GDP per employeed person") +
+  coord_flip()
+```
+
+
+

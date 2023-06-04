@@ -1,0 +1,80 @@
+---
+title: "ioslides features"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Were did ioslides come from?
+
+The ioslides_presentation format is a clone of a slide deck template created by Google for their Google IO 2010 Conference.
+
+
+- [Eric Bidelman's announcement of the slide template](https://plus.google.com/+EricBidelman/posts/LG93tTdJYLy).
+
+- [Original source code](https://code.google.com/archive/p/io-2012-slides/)
+
+Lot's of folks really loved the format, and duplicated it. There was a feeling that maybe Google would iterate on the format.
+
+## Benefits of ioslides
+
+There are many benefits of the ioslides format:
+
+- Designed for readability (can't put too much on a slide).
+
+- Works well on mobile devices
+
+- Looks swish!
+
+## Disadvantanges of ioslides
+
+Some disadvantages of the format:
+
+- Slides have two **fixed** resolutions, normal and widescreen (toggled by pressing `w`). This results in a lot of deadspace.
+
+- Extremely difficult to customise text styles, `as.character("code formatting")` and arbitrary HTML/CSS/JavaScript
+
+## Slides overview
+
+ioslides have a very useful "slide overview" accessible with the `o` key.
+
+## ioslides unique feature: Highlighting code
+
+There's a useful feature for highlighting specific parts of a code chunk with special comments:
+
+\#\# \<b\><br>
+library("tidyverse")<br>
+\#\# \</b\>
+
+```{r message=FALSE, warning=FALSE}
+library("tidyverse")
+starwars %>%
+  count(species) %>%
+  ### <b>
+  arrange(desc(n)) %>%
+  ### </b>
+  top_n(1)
+```
+
+
+## ioslides unique Feature: Presenter notes
+
+Content can be hidden from your audience using *presenter notes*. These are displayed if the `p` key is pressed.
+
+<div class="notes">
+Notes are useful for a variety of reasons:
+
+- Reminding speakers of talking points
+- Showing your audience a footnote
+- Including a webcomic 
+
+<center>
+<img src='https://i.kym-cdn.com/photos/images/newsfeed/001/401/347/312.jpg' width='300px'></img>
+</center>
+</div>
+
+## Use these slides as a template!
+
+Consider using this .Rmd file as your template for ioslides presentations as it contains all of the features I've explained and a bit more.

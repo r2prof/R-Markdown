@@ -1,0 +1,51 @@
+---
+title: "Beamer features"
+output: 
+  beamer_presentation:
+    includes:
+      in_header: styles/header_pagenrs.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Where did beamer come from?
+
+The `beamer_presentation` format comes from the extremely popular beamer LaTeX class, which is used widely in academia.
+
+- [Github repository for Beamer](https://github.com/josephwright/beamer)
+
+## Benefits of using beamer
+
+The `beamer_presentation` format has a number of useful features:
+
+- Default fonts and styles are designed for readability, helping to reduce information overload per slide.
+
+## Disadvantages of using beamer
+
+Beamer defaults do not include slide numbers or any other information about the slide deck.
+
+You must write \LaTeX in order to insert page numbers.
+
+## Inserting slide numbers
+
+This .Rmd has been customised to include slide numbers in the footer by following two steps:
+
+1. Add this to your YAML header:
+
+        output: 
+          beamer_presentation:
+            includes:
+              in_header: styles/header_pagenrs.tex
+
+1. Create a new file `styles/header_pagenrs.tex` and add these two lines:
+
+```{r, eval = FALSE}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[page number]
+```
+
+## Use these slides as a template!
+
+Consider using this .Rmd file as your template for presentation presentations as it contains all of the features I've explained and a bit more.

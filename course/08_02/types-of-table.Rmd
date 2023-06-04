@@ -1,0 +1,16 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Different types of tables in RMarkdown
+
+- Raw markdown: Creates static tables, great for short tables
+
+- knitr::kable(): Create static tables, great for captions etc
+
+- DT::datatable(): Create interactive tables, Very flexible and works in Shiny
