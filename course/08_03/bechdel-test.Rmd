@@ -1,6 +1,8 @@
 ---
 title: "Movie profitability and the Bechdel test"
-output: html_document
+output: 
+  html_document:
+    df_print: paged
 editor_options: 
   chunk_output_type: console
 ---
@@ -12,6 +14,12 @@ knitr::opts_chunk$set(
 	warning = FALSE
 )
 ```
+```{r}
+head(iris)
+```
+
+
+
 
 Some folks in Hollywood claim that movies with female characters make less in the box office, [FiveThirtyEight showed us that's not the case](https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/). The `fivethirtyeight` package includes the dataset behind this analysis, and many more.
 

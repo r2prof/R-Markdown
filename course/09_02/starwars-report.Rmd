@@ -1,6 +1,6 @@
 ---
 title: "Captions using bookdown"
-output: html_document
+output: bookdown::html_document2
 tidy: styler
 editor_options: 
   chunk_output_type: console
@@ -24,9 +24,9 @@ For instance, this document includes:
 
 # Captions for tables
 
-All charts in this report are generated from the `starwars` dataset in the `dplyr` package. Let's take a look at the dataset in the table below.
+All charts in this report are generated from the `starwars` dataset in the `dplyr` package. Let's take a look at the dataset in Table \@ref(tab:starwars-report-1).
 
-```{r}
+```{r starwars-report-1}
 library("tidyverse")
 starwars %>%
   select(name, species, height, films) %>%
@@ -40,7 +40,7 @@ starwars %>%
 
 In the interests of not raising questions about copyright, rather than a Starwars image let's show how to caption the `knitr` logo in the figure below.
 
-```{r}
+```{r starwars-report-2, fig.cap = "Knitr logo"}
 knitr::include_graphics("images/knitr-sticker.png")
 ```
 
@@ -50,7 +50,7 @@ The `starwars` dataset includes `r nrow(starwars)` characters from a variety of 
 
 ## Species
 
-Humans dominate the Starwars universe.
+Humans dominate the Starwars universe, Figure \@ref(fig:starwars-species-chart).
 
 ```{r starwars-species-chart, fig.cap="Top 4 most common species in Starwars"}
 library("gghighlight")

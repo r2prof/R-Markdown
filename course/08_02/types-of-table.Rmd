@@ -14,3 +14,9 @@ Different types of tables in RMarkdown
 - knitr::kable(): Create static tables, great for captions etc
 
 - DT::datatable(): Create interactive tables, Very flexible and works in Shiny
+
+
+
+
+
+

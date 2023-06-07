@@ -20,11 +20,13 @@ Let's take a look at the top 20 highest grossing films published after 1990, 80%
 ```{r}
 library("tidyverse")
 library("fivethirtyeight")
+library("DT")
 bechdel %>%
   filter(year > 1990) %>%
   select(title, year, clean_test, binary, intgross_2013) %>%
   arrange(desc(intgross_2013)) %>%
-  slice(1:20)
+  slice(1:20) %>% 
+  datatable(filter = "top")
 ```
 
 When comparing the profitability of films, films that pass the Bechdel have a higher median profitability than any other category!

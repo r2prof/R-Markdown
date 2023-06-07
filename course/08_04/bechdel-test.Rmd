@@ -20,11 +20,15 @@ Let's take a look at the top 20 highest grossing films published after 1990, 80%
 ```{r}
 library("tidyverse")
 library("fivethirtyeight")
+library("kableExtra")
 bechdel %>%
   filter(year > 1990) %>%
   select(title, year, clean_test, binary, intgross_2013) %>%
   arrange(desc(intgross_2013)) %>%
-  slice(1:20)
+  slice(1:20) %>% 
+  knitr::kable() %>% 
+  kable_styling(bootstrap_options = "striped",
+                latex_options = "striped")
 ```
 
 When comparing the profitability of films, films that pass the Bechdel have a higher median profitability than any other category!
@@ -35,7 +39,9 @@ bechdel %>%
   mutate(profitability = intgross_2013 / budget_2013) %>%
   group_by(clean_test) %>%
   summarise(median_profitability = median(profitability, na.rm = TRUE)) %>%
-  arrange(desc(median_profitability))
+  arrange(desc(median_profitability))%>% 
+  knitr::kable() %>% 
+  kable_styling()
 ```
 
 Boxplots provide more information that the summary statitics in the table above are able to communicate.
