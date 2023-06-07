@@ -1,6 +1,8 @@
 ---
 title: ""
-output: bookdown::html_document2
+output: 
+  bookdown::html_document2:
+    css: [www/company-styles.css, www/caption-styles.css]
 tidy: styler
 editor_options: 
   chunk_output_type: console

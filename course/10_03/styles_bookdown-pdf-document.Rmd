@@ -1,6 +1,10 @@
 ---
 title: ""
 output: bookdown::pdf_document2
+classoption: 12pt
+header-includes: 
+  - \usepackage{"company-styles"}
+  - \usepackage{"caption-styles"}
 tidy: styler
 editor_options: 
   chunk_output_type: console
