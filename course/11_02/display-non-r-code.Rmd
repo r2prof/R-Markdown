@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 It's possible to insert HTML, LateX and Markdown code without it being interpeted in your document by setting code chunk language:
 
-
+```{html}
 <div class="row">
   <div class="col-md-6">
     Hello!
@@ -18,17 +18,26 @@ It's possible to insert HTML, LateX and Markdown code without it being interpete
     World!
   </div>
 </div>
+```
 
-
-
+```{latex}
 \usepackage{foo}
 % latex
+```
 
 
-
+```{markdown}
 # Header
 ## Sub heading
 *bold*
+```
+
+
+
+
+
+
+
 
 
 

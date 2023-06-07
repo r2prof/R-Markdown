@@ -35,7 +35,7 @@ So, the following can be used verbatim: $, %, &, ~, _, ^,
 
 However, they must be double escaped within code chunks. For instance, in the caption for Fig.\@ref(fig:mean-gdp-chart) the $ symbol is written as \\\\$
 
-```{r mean-gdp-chart, fig.cap="Mean GDP per employeed person (2010-2015, 2011 $)", fig.height=2}
+```{r mean-gdp-chart, fig.cap="Mean GDP per employeed person (2010-2015, 2011 \\$)", fig.height=2}
 library("gapminder")
 library("tidyverse")
 library("WDI")

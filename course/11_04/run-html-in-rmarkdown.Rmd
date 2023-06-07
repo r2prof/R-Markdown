@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 
 RMarkdown `html_document` and all other HTML output formats provide the excellent Bootstrap framework for creating a beautiful user experience.
 
+<!--html_preserve-->
 <div class="row">
   <div class="col-md-6">
     <center>
@@ -27,3 +28,4 @@ RMarkdown `html_document` and all other HTML output formats provide the excellen
     </center>
   </div>
 </div>
+<!--/html_preserve-->
