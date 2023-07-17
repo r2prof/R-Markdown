@@ -1,6 +1,6 @@
 ---
 title: "R Markdown Tutorial"
-author: "R2"
+author: "Raza Rafique"
 date: "`r Sys.Date()`"
 output: 
   html_document:

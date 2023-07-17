@@ -1,0 +1,55 @@
+---
+title: "AFRICAN ELEPHANT POPULATIONS"
+author: "Raza Rafique"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: yeti
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Description
+
+Although millions of elephants once roamed across Africa, by the mid-1980s elephant populations in African nations had been devastated by poaching. Elephants are important to African ecosystems. In tropical forests, elephants create clearings in the canopy that encourage new tree growth. In savannas, elephants reduce bush cover to create an environment that is favorable to browsing and grazing animals. In addition, the seeds of many plant species depend on passing through an elephant’s digestive tract before germination.
+\
+\
+The status of the elephant now varies greatly across the continent. In some nations, strong measures have been taken to effectively protect elephant populations; for example, Kenya has destroyed over five tons of elephant ivory confiscated from poachers in an attempt to deter the growth of illegal ivory trade (Associated Press, July 20, 2011). In other nations the elephant populations remain in danger due to poaching for meat and ivory, loss of habitat, and conflict with humans. The data table shows elephant populations for several African nations in 1979, 1989, 2007, and 2012.
+\
+\
+The David Sheldrick Wildlife Trust was established in 1977 to honor the memory of naturalist David Leslie William Sheldrick, who founded Warden of Tsavo East National Park in Kenya and headed the Planning Unit of the Wildlife Conservation and Management Department in that country. Management of the Sheldrick Trust would like to know what these data indicate about elephant populations in various African countries since 1979.
+\
+
+## Managerial Report
+Use methods of descriptive statistics to summarize the data and comment on changes in elephant populations since 1979. Include the following in your report.
+\
+
+#. Use the geometric mean calculation to find the mean annual change in elephant population for each country in the 10 years from 1979 to 1989, and a discussion of which countries saw the largest changes in elephant population over this 10-year period.
+\
+#. Use the geometric mean calculation to find the mean annual change in elephant population for each country in the 18 years from 1989 to 2007, and a discussion of which countries saw the largest changes in elephant population over this 18-year period.
+\
+#. 	Use the geometric mean calculation to find the mean annual change in elephant population for each country in the five years from 2007 to 2012, and a discussion of which countries saw the largest changes in elephant population over this five-year period.
+\
+#.	Create a multiple boxplot graph that includes boxplots of the elephant population observations in each year (1979, 1989, 2007, 2012). Use these boxplots and the results of your analyses in points 1 through 3 above to comment on how the populations of elephants have changed during these time periods.
+
+```{r cars}
+summary(cars)
+library(readr)
+data <- read_csv("africanelephants.csv")
+head(data)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

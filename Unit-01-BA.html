@@ -13,7 +13,7 @@
 
 <meta name="date" content="2023-07-16" />
 
-<title>R Markdown Tutorial</title>
+<title>AFRICAN ELEPHANT POPULATIONS</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1516,22 +1516,71 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">R Markdown Tutorial</h1>
+<h1 class="title toc-ignore">AFRICAN ELEPHANT POPULATIONS</h1>
 <h4 class="author">Raza Rafique</h4>
 <h4 class="date">2023-07-16</h4>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
+<div id="description" class="section level2">
+<h2>Description</h2>
+<p>Although millions of elephants once roamed across Africa, by the
+mid-1980s elephant populations in African nations had been devastated by
+poaching. Elephants are important to African ecosystems. In tropical
+forests, elephants create clearings in the canopy that encourage new
+tree growth. In savannas, elephants reduce bush cover to create an
+environment that is favorable to browsing and grazing animals. In
+addition, the seeds of many plant species depend on passing through an
+elephant’s digestive tract before germination.<br />
+<br />
+The status of the elephant now varies greatly across the continent. In
+some nations, strong measures have been taken to effectively protect
+elephant populations; for example, Kenya has destroyed over five tons of
+elephant ivory confiscated from poachers in an attempt to deter the
+growth of illegal ivory trade (Associated Press, July 20, 2011). In
+other nations the elephant populations remain in danger due to poaching
+for meat and ivory, loss of habitat, and conflict with humans. The data
+table shows elephant populations for several African nations in 1979,
+1989, 2007, and 2012.<br />
+<br />
+The David Sheldrick Wildlife Trust was established in 1977 to honor the
+memory of naturalist David Leslie William Sheldrick, who founded Warden
+of Tsavo East National Park in Kenya and headed the Planning Unit of the
+Wildlife Conservation and Management Department in that country.
+Management of the Sheldrick Trust would like to know what these data
+indicate about elephant populations in various African countries since
+1979.<br />
+</p>
+</div>
+<div id="managerial-report" class="section level2">
+<h2>Managerial Report</h2>
+<p>Use methods of descriptive statistics to summarize the data and
+comment on changes in elephant populations since 1979. Include the
+following in your report.<br />
+</p>
+<ol>
+<li>Use the geometric mean calculation to find the mean annual change in
+elephant population for each country in the 10 years from 1979 to 1989,
+and a discussion of which countries saw the largest changes in elephant
+population over this 10-year period.<br />
+</li>
+<li>Use the geometric mean calculation to find the mean annual change in
+elephant population for each country in the 18 years from 1989 to 2007,
+and a discussion of which countries saw the largest changes in elephant
+population over this 18-year period.<br />
+</li>
+<li>Use the geometric mean calculation to find the mean annual change in
+elephant population for each country in the five years from 2007 to
+2012, and a discussion of which countries saw the largest changes in
+elephant population over this five-year period.<br />
+</li>
+<li>Create a multiple boxplot graph that includes boxplots of the
+elephant population observations in each year (1979, 1989, 2007, 2012).
+Use these boxplots and the results of your analyses in points 1 through
+3 above to comment on how the populations of elephants have changed
+during these time periods.</li>
+</ol>
 <pre class="r"><code>summary(cars)</code></pre>
 <pre><code>##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
@@ -1540,6 +1589,29 @@ chunk like this:</p>
 ##  Mean   :15.4   Mean   : 42.98  
 ##  3rd Qu.:19.0   3rd Qu.: 56.00  
 ##  Max.   :25.0   Max.   :120.00</code></pre>
+<pre class="r"><code>library(readr)
+data &lt;- read_csv(&quot;africanelephants.csv&quot;)</code></pre>
+<pre><code>## Rows: 14 Columns: 5
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (1): Country
+## num (4): 1979 Elephant Population, 1989 Elephant Population, 2007 Elephant P...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>head(data)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+##   Country   1979 Elephant Popula…¹ 1989 Elephant Popula…² 2007 Elephant Popula…³
+##   &lt;chr&gt;                      &lt;dbl&gt;                  &lt;dbl&gt;                  &lt;dbl&gt;
+## 1 Angola                     12400                  12400                   2530
+## 2 Botswana                   20000                  51000                 175487
+## 3 Cameroon                   16200                  21200                  15387
+## 4 Cen Afri…                  63000                  19000                   3334
+## 5 Chad                       15000                   3100                   6435
+## 6 Congo                      10800                  70000                  22102
+## # ℹ abbreviated names: ¹​`1979 Elephant Population`,
+## #   ²​`1989 Elephant Population`, ³​`2007 Elephant Population`
+## # ℹ 1 more variable: `2012 Elephant Population` &lt;dbl&gt;</code></pre>
 </div>
 <div id="including-plots" class="section level2">
 <h2>Including Plots</h2>
